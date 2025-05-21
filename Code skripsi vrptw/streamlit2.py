@@ -37,7 +37,7 @@ if uploaded_file:
     if show_optimized:
         st.subheader("Parameter ACO")
         col1, col2, col3, col4 = st.columns(4)
-        ants_num = col1.text_input("Jumlah Semut", "10")
+        ants_num = col1.text_input("Jumlah Semut", "100")
         max_iter = col2.text_input("Maksimum Iterasi", "200")
         beta = col3.text_input("Beta (Pengaruh Jarak)", "1.0")
         q0 = col4.text_input("q0 (Probabilitas Eksploitasi)", "0.1")

@@ -11,6 +11,7 @@ class BasicACO:
     def __init__(self, graph: VrptwGraph, ants_num, max_iter, beta, q0,
                  whether_or_not_to_show_figure=True):
         super()
+        self.alpha = 1
         # The graph includes the positions and service time information of the nodes.
         self.graph = graph
         # Number of ants.
@@ -148,7 +149,7 @@ class BasicACO:
         current_index = ant.current_index
         index_to_visit = ant.index_to_visit
 
-        transition_prob = self.graph.pheromone_mat[current_index][index_to_visit] * \
+        transition_prob = np.power(self.graph.pheromone_mat[current_index][index_to_visit], self.alpha) * \
             np.power(self.graph.heuristic_info_mat[current_index][index_to_visit], self.beta)
         transition_prob = transition_prob / np.sum(transition_prob)
 
